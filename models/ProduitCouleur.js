@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const produitCouleurSchema = new Schema({
   couleur: {
     type: String,
+    code:String
   },
 });
 

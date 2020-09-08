@@ -50,15 +50,16 @@ const pullTaille = ["s", "m", "l"];
 const articleTaille = ["s", "m", "l", "34", "36", "38", "40", "42", "44"];
 //
 const sacTaille = ["tu"];
+const ceinturetaille = ["70", "80", "90"];
 
 const articleTypefinal = [];
 const articleCouleurfinal = [];
 const articleCompositionfinal = [];
-const articleTaillefinal = [];
 
 // SEEDING FUNCTIONS
 
 function seedRobeTaille() {
+  const articleTaillefinal = [];
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
@@ -68,6 +69,176 @@ function seedRobeTaille() {
   ArticleTailleModel.insertMany(articleTaillefinal);
 }
 
+function seedVesteTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d275",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedManteauTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d276",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedPullTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d277",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedChemiseTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d279",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedCardiganTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d278",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedTopTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d27a",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedtshirtTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d27b",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedSweatTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d27c",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedshortTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d27d",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedpantalonTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d27e",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedjupeTaille() {
+  const articleTaillefinal = [];
+  articleTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d27f",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedchaussureTaille() {
+  const articleTaillefinal = [];
+  chaussureTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d280",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedBijouxTaille() {
+  const articleTaillefinal = [];
+  sacTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d281",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedsacTaille() {
+  const articleTaillefinal = [];
+  sacTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d283",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedceintureTaille() {
+  const articleTaillefinal = [];
+  ceinturetaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d282",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedlunetteTaille() {
+  const articleTaillefinal = [];
+  sacTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d286",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
+function seedaccesstextileTaille() {
+  const articleTaillefinal = [];
+  sacTaille.forEach((taille) =>
+    articleTaillefinal.push({
+      taille: taille,
+      type_article: "5ec5782030b9460abc47d284",
+    })
+  );
+  ArticleTailleModel.insertMany(articleTaillefinal);
+}
 function seedArticleType() {
   articleType.forEach((type) => articleTypefinal.push({ type: type }));
   ArticletypeModel.insertMany(articleTypefinal);
@@ -90,3 +261,20 @@ function seedArticleComposition() {
 //seedArticleCouleur();
 //seedArticleComposition();
 seedRobeTaille();
+seedaccesstextileTaille();
+seedlunetteTaille();
+seedceintureTaille();
+seedsacTaille();
+seedBijouxTaille();
+seedchaussureTaille();
+seedjupeTaille();
+seedpantalonTaille();
+seedshortTaille();
+seedSweatTaille();
+seedtshirtTaille();
+seedVesteTaille();
+seedManteauTaille();
+seedPullTaille();
+seedChemiseTaille();
+seedCardiganTaille();
+seedTopTaille();
