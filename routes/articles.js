@@ -5,14 +5,31 @@ const articleModel = require("../models/Article");
 const produitTypeModel = require("../models/ProduitType");
 const produitColorModel = require("../models/ProduitCouleur");
 const produitCompositionModel = require("../models/ProduitComposition");
+const produitTailleModel = require("../models/ProduitTaille");
 
 const mongoose = require("mongoose");
+router.get("/detail/type/:id", (req, res, next) => {
+  produitTypeModel
+    .findOne({ _id: req.params.id }) // this will fetch one type by id
+    .then((type) => res.json(type))
+    .catch(next); // catched if an error occured );
+});
+//get specific article type with type Id
+
+//get specific article size with size Id
+
+router.get("/detail/taille/:id", (req, res, next) => {
+  produitTailleModel
+    .findOne({ _id: req.params.id }) // this will fetch one taille by id
+    .then((taille) => res.json(taille))
+    .catch(next); // catched if an error occured );
+});
 
 //get specific article composition with composition Id
 
 router.get("/detail/composition/:id", (req, res, next) => {
   produitCompositionModel
-    .findOne({ _id: req.params.id }) // this will fetch one compoisition by id 
+    .findOne({ _id: req.params.id }) // this will fetch one compoisition by id
     .then((compo) => res.json(compo))
     .catch(next); // catched if an error occured );
 });
@@ -198,6 +215,8 @@ router.get("/recherche/:parametres", async (req, res, next) => {
 });
 
 //get all available articles that match the robe type
+
+/**Affichage page d accueil les differentes sections  */
 
 router.get("/robes", async (req, res, next) => {
   const alltypes = await produitTypeModel.find();
