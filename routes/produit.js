@@ -9,14 +9,26 @@ const produitCompositionModel = require("../models/ProduitComposition");
 const uploader = require("../config/cloudinary");
 
 // adding a product in the product table
-router.post("/", uploader.single("image"), (req, res) => {
-  const newArticle = req.body;
 
-  if (req.file) newArticle.image = req.file.secure_url;
+router.post("/", uploader.array("image"), (req, res) => {
+  const newArticle = req.body;
+  console.log("test", req.files);
+  //console.log("test2", req.files["image"][0]);
+  var files = req.files[0].secure_url;
+  console.log(files);
+
+  console.log("l objet ", newArticle);
+
+  if (req.files) {
+    newArticle.image = [];
+    newArticle.image.push(req.files[0].secure_url);
+    newArticle.image.push(req.files[1].secure_url);
+  }
 
   produitModel
     .create(newArticle)
     .then((article) => {
+      console.log("article", article);
       res.status(200).send(article);
     })
     .catch((err) => {

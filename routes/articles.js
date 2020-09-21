@@ -83,6 +83,8 @@ function retrieveId(collection, field, elt) {
   return null;
 }
 
+/** we are dealing with the search in this section */
+
 // get all articles that match the search
 router.get("/recherche/:parametres", async (req, res, next) => {
   const wordsToSearch = req.params.parametres.split(" ");
@@ -214,9 +216,9 @@ router.get("/recherche/:parametres", async (req, res, next) => {
   //search for articles available based on the product found
 });
 
-//get all available articles that match the robe type
-
 /**Affichage page d accueil les differentes sections  */
+
+//get all available articles that match the robe type
 
 router.get("/robes", async (req, res, next) => {
   const alltypes = await produitTypeModel.find();
@@ -280,6 +282,93 @@ router.get("/manteauVeste", async (req, res, next) => {
   }
 });
 
+//get all available articles that matches the maille type
+
+router.get("/maille", async (req, res, next) => {
+  const alltypes = await produitTypeModel.find();
+  var typeIdpull = retrieveId(alltypes, "type", "pull");
+  var typeIdcardigan = retrieveId(alltypes, "type", "cardigan");
+  var typeIdsweat = retrieveId(alltypes, "type", "sweat");
+
+  if (typeIdpull != null || typeIdcardigan != null || typeIdsweat != null) {
+    produitModel
+      .aggregate([
+        {
+          $match: {
+            $or: [
+              { type: typeIdpull },
+              { type: typeIdcardigan },
+              { type: typeIdsweat },
+            ],
+          },
+        },
+
+        {
+          $lookup: {
+            from: "articles",
+            localField: "_id",
+            foreignField: "produit",
+            as: "mailles",
+          },
+        },
+        {
+          $match: {
+            "mailles.disponible": true,
+          },
+        },
+      ])
+      .then((allmailles) => res.json(allmailles))
+      .catch(next);
+  }
+});
+
+//get all available articles that matches the top type
+
+router.get("/top", async (req, res, next) => {
+  const alltypes = await produitTypeModel.find();
+  var typeIdtshirt = retrieveId(alltypes, "type", "tshirt");
+  var typeIdtop = retrieveId(alltypes, "type", "top");
+  var typeIdchemise = retrieveId(alltypes, "type", "chemise");
+  var typeIdsweat = retrieveId(alltypes, "type", "sweat");
+
+  if (
+    typeIdtshirt != null ||
+    typeIdtop != null ||
+    typeIdsweat != null ||
+    typeIdchemise != null
+  ) {
+    produitModel
+      .aggregate([
+        {
+          $match: {
+            $or: [
+              { type: typeIdtshirt },
+              { type: typeIdtop },
+              { type: typeIdsweat },
+              { type: typeIdchemise },
+            ],
+          },
+        },
+
+        {
+          $lookup: {
+            from: "articles",
+            localField: "_id",
+            foreignField: "produit",
+            as: "top",
+          },
+        },
+        {
+          $match: {
+            "top.disponible": true,
+          },
+        },
+      ])
+      .then((alltop) => res.json(alltop))
+      .catch(next);
+  }
+});
+
 // get  all available articles that match the accessoire type
 
 router.get("/accessoire", async (req, res, next) => {
@@ -290,7 +379,13 @@ router.get("/accessoire", async (req, res, next) => {
   var typeIdb = retrieveId(alltypes, "type", "bijoux");
   var typeIds = retrieveId(alltypes, "type", "sac");
 
-  if (typeIdm != null || typeIdv != null) {
+  if (
+    typeIdc != null ||
+    typeIdl != null ||
+    typeIdat != null ||
+    typeIdb != null ||
+    typeIds != null
+  ) {
     produitModel
       .aggregate([
         {
