@@ -318,9 +318,9 @@ function seedArticleComposition() {
 }
 
 // SEED FUNCTION CALLS in comment when seeding has been done
-seedArticleType();
-seedArticleCouleur();
-seedArticleComposition();
+//seedArticleType();
+//seedArticleCouleur();
+//seedArticleComposition();
 seedRobeTaille();
 seedaccesstextileTaille();
 seedlunetteTaille();
