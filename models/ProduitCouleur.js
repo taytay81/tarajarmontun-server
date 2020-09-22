@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 const produitCouleurSchema = new Schema({
   couleur: {
     type: String,
-    code:String
+  },
+  code: {
+    type: String,
   },
 });
 
 const ProduitCouleur = mongoose.model("ProduitCouleur", produitCouleurSchema);
 
 module.exports = ProduitCouleur;
-
-
