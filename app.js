@@ -1,13 +1,25 @@
 require("dotenv").config();
 require("./config/mongo");
+//require("./config/passport");
 
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+//const session = require("express-session"); //sessions make data persist between http calls
+//const passport = require("passport"); // auth library (needs sessions)
 const cors = require("cors");
 
 var app = express();
+
+/*app.use(
+  session({
+    cookie: { secure: false, maxAge: 4 * 60 * 60 * 1000 }, // 4 hours
+    resave: true,
+    saveUninitialized: true,
+    secret: process.env.SECRET_SESSION
+  })
+);*/
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -25,6 +37,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 // cors middle on
+////app.use(passport.initialize());
+//app.use(passport.session());
+
 var indexRouter = require("./routes/index.js");
 var usersRouter = require("./routes/users.js");
 var produitRouter = require("./routes/produit.js");
