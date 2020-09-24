@@ -7,7 +7,17 @@ const ArticlecompositionModel = require("../../models/ProduitComposition");
 const ArticleTailleModel = require("../../models/ProduitTaille");
 
 const articleCouleur = [
-  "EMERAUDE",
+  "ROSE BONBON",
+  "#FFC0CB",
+  "GRIS FONCE CHINE",
+  "#808080",
+  "ROSE",
+  "#FFC0CB",
+  "BOUTEILLE",
+  "#004C00",
+  "MOKA",
+  "#631919",
+  /*"EMERAUDE",
   "#019875",
   "ROUGE",
   "#FF0000",
@@ -34,7 +44,7 @@ const articleCouleur = [
   "CANARD",
   "#01202B",
   "OR",
-  "#d5cda2",
+  "#d5cda2",*/
 ];
 const articleType = [
   "robe",
@@ -319,9 +329,9 @@ function seedArticleComposition() {
 
 // SEED FUNCTION CALLS in comment when seeding has been done
 //seedArticleType();
-//seedArticleCouleur();
+seedArticleCouleur();
 //seedArticleComposition();
-seedRobeTaille();
+/*seedRobeTaille();
 seedaccesstextileTaille();
 seedlunetteTaille();
 seedceintureTaille();
@@ -338,4 +348,4 @@ seedManteauTaille();
 seedPullTaille();
 seedChemiseTaille();
 seedCardiganTaille();
-seedTopTaille();
+seedTopTaille();*/
