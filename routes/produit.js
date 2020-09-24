@@ -10,7 +10,7 @@ const uploader = require("../config/cloudinary");
 const cors = require("cors");
 // adding a product in the product table
 
-router.post("/", uploader.array("image"), (req, res) => {
+router.post("/",cors(), uploader.array("image"), (req, res) => {
   const newArticle = req.body;
   console.log("test", req.files);
   //console.log("test2", req.files["image"][0]);
@@ -37,7 +37,7 @@ router.post("/", uploader.array("image"), (req, res) => {
 });
 
 // adding an article using a product Id
-router.post("/article", (req, res, next) => {
+router.post("/article",cors(), (req, res, next) => {
   produitArticleModel
     .create(req.body)
     .then((article) => res.status(200).json(article))
@@ -46,7 +46,7 @@ router.post("/article", (req, res, next) => {
 
 //getting all product type
 
-router.get("/type", (req, res, next) => {
+router.get("/type",cors(), (req, res, next) => {
   produitTypeModel
     .find()
     .then((articleType) => {
@@ -56,7 +56,7 @@ router.get("/type", (req, res, next) => {
 });
 
 //get les tailles des produits par type
-router.get("/taille/:id", (req, res, next) => {
+router.get("/taille/:id",cors(), (req, res, next) => {
   produitTailleModel
     .find({ type_article: req.params.id })
     .then((articleTaille) => res.json({ taille: articleTaille }))
@@ -64,7 +64,7 @@ router.get("/taille/:id", (req, res, next) => {
 });
 
 //getting all article color
-router.get("/couleur", (req, res, next) => {
+router.get("/couleur",cors(), (req, res, next) => {
   produitCouleureModel
     .find()
     .then((articleCouleur) => res.json({ couleur: articleCouleur }))
@@ -73,7 +73,7 @@ router.get("/couleur", (req, res, next) => {
 
 //add a color
 
-router.post("/couleur", (req, res, next) => {
+router.post("/couleur",cors(), (req, res, next) => {
   produitCouleureModel
     .create(req.body)
     .then((articleCouleur) => res.status(200).json(articleCouleur))
@@ -82,7 +82,7 @@ router.post("/couleur", (req, res, next) => {
 
 //edit a color
 
-router.patch("/couleur/:id", (req, res, next) => {
+router.patch("/couleur/:id",cors(), (req, res, next) => {
   produitCouleureModel
     .findByIdAndUpdate(req.params.id, req.body)
     .then((articleCouleur) => res.status(201).json(articleCouleur))

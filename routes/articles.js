@@ -6,9 +6,9 @@ const produitTypeModel = require("../models/ProduitType");
 const produitColorModel = require("../models/ProduitCouleur");
 const produitCompositionModel = require("../models/ProduitComposition");
 const produitTailleModel = require("../models/ProduitTaille");
-
+const cors = require("cors");
 const mongoose = require("mongoose");
-router.get("/detail/type/:id", (req, res, next) => {
+router.get("/detail/type/:id", cors(), (req, res, next) => {
   produitTypeModel
     .findOne({ _id: req.params.id }) // this will fetch one type by id
     .then((type) => res.json(type))
@@ -18,7 +18,7 @@ router.get("/detail/type/:id", (req, res, next) => {
 
 //get specific article size with size Id
 
-router.get("/detail/taille/:id", (req, res, next) => {
+router.get("/detail/taille/:id", cors(), (req, res, next) => {
   produitTailleModel
     .findOne({ _id: req.params.id }) // this will fetch one taille by id
     .then((taille) => res.json(taille))
@@ -27,7 +27,7 @@ router.get("/detail/taille/:id", (req, res, next) => {
 
 //get specific article composition with composition Id
 
-router.get("/detail/composition/:id", (req, res, next) => {
+router.get("/detail/composition/:id", cors(), (req, res, next) => {
   produitCompositionModel
     .findOne({ _id: req.params.id }) // this will fetch one compoisition by id
     .then((compo) => res.json(compo))
@@ -36,7 +36,7 @@ router.get("/detail/composition/:id", (req, res, next) => {
 
 //get specific article couleur with couleur Id
 
-router.get("/detail/couleur/:id", (req, res, next) => {
+router.get("/detail/couleur/:id", cors(), (req, res, next) => {
   produitColorModel
     .findOne({ _id: req.params.id }) // this will fetch one color by id from db
     .then((color) => res.json(color))
@@ -44,7 +44,7 @@ router.get("/detail/couleur/:id", (req, res, next) => {
 });
 
 // get one article with all details
-router.get("/detail/:id", (req, res, next) => {
+router.get("/detail/:id", cors(), (req, res, next) => {
   console.log(req.params.id);
   produitModel
     .aggregate([
@@ -86,7 +86,7 @@ function retrieveId(collection, field, elt) {
 /** we are dealing with the search in this section */
 
 // get all articles that match the search
-router.get("/recherche/:parametres", async (req, res, next) => {
+router.get("/recherche/:parametres", cors(), async (req, res, next) => {
   const wordsToSearch = req.params.parametres.split(" ");
 
   const alltypes = await produitTypeModel.find();
@@ -220,7 +220,7 @@ router.get("/recherche/:parametres", async (req, res, next) => {
 
 //get all available articles that match the robe type
 
-router.get("/robes", async (req, res, next) => {
+router.get("/robes", cors(), async (req, res, next) => {
   const alltypes = await produitTypeModel.find();
   var typeId = retrieveId(alltypes, "type", "robe");
   if (typeId != null) {
@@ -250,7 +250,7 @@ router.get("/robes", async (req, res, next) => {
 
 //get all available articles that match the manteaux et veste type
 
-router.get("/manteauVeste", async (req, res, next) => {
+router.get("/manteauVeste", cors(), async (req, res, next) => {
   const alltypes = await produitTypeModel.find();
   var typeIdm = retrieveId(alltypes, "type", "manteaux");
   var typeIdv = retrieveId(alltypes, "type", "veste");
@@ -284,7 +284,7 @@ router.get("/manteauVeste", async (req, res, next) => {
 
 //get all available articles that matches the maille type
 
-router.get("/maille", async (req, res, next) => {
+router.get("/maille", cors(), async (req, res, next) => {
   const alltypes = await produitTypeModel.find();
   var typeIdpull = retrieveId(alltypes, "type", "pull");
   var typeIdcardigan = retrieveId(alltypes, "type", "cardigan");
@@ -324,7 +324,7 @@ router.get("/maille", async (req, res, next) => {
 
 //get all available articles that matches the top type
 
-router.get("/top", async (req, res, next) => {
+router.get("/top", cors(), async (req, res, next) => {
   const alltypes = await produitTypeModel.find();
   var typeIdtshirt = retrieveId(alltypes, "type", "tshirt");
   var typeIdtop = retrieveId(alltypes, "type", "top");
@@ -371,7 +371,7 @@ router.get("/top", async (req, res, next) => {
 
 // get  all available articles that match the accessoire type
 
-router.get("/accessoire", async (req, res, next) => {
+router.get("/accessoire", cors(), async (req, res, next) => {
   const alltypes = await produitTypeModel.find();
   var typeIdc = retrieveId(alltypes, "type", "ceinture");
   var typeIdl = retrieveId(alltypes, "type", "lunettes");
@@ -420,7 +420,7 @@ router.get("/accessoire", async (req, res, next) => {
 });
 
 // get the 15 latest inserted article to print in the new In
-router.get("/newIn", async (req, res, next) => {
+router.get("/newIn", cors(), async (req, res, next) => {
   produitModel
     .aggregate([
       {
