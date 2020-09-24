@@ -7,7 +7,7 @@ const produitTailleModel = require("../models/ProduitTaille");
 const produitCouleureModel = require("../models/ProduitCouleur");
 const produitCompositionModel = require("../models/ProduitComposition");
 const uploader = require("../config/cloudinary");
-
+const cors = require("cors");
 // adding a product in the product table
 
 router.post("/", uploader.array("image"), (req, res) => {
@@ -89,7 +89,8 @@ router.patch("/couleur/:id", (req, res, next) => {
     .catch(next);
 });
 
-router.get("/composition", (req, res, next) => {
+router.get("/composition", cors(), (req, res, next) => {
+  console.log("on a ajoute cors sur cette requete");
   produitCompositionModel
     .find()
     .then((produitComposition) => res.json({ composition: produitComposition }))
