@@ -18,6 +18,10 @@ const articleSchema = new Schema({
     default: true,
     required: true,
   },
+  emplacement: {
+    type: String,
+    default: "Lac 2",
+  },
 });
 
 const Article = mongoose.model("Article", articleSchema);
