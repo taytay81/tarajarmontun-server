@@ -12,6 +12,16 @@ const cors = require("cors");
 
 var app = express();
 
+// this rule allows the client app to exchange via http via the server (AJAX ... Axios)
+const corsOptions = {
+  origin: [process.env.CLIENT_URL],
+  /* credentials : Configures the Access-Control-Allow-Credentials CORS header. Set to true to pass the header, otherwise it is omitted  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials */
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
 app.use(logger("dev"));
 app.use(cookieParser());
 app.use(express.json());
@@ -27,16 +37,6 @@ app.use(
     secret: process.env.SECRET_SESSION,
   })
 );
-
-// this rule allows the client app to exchange via http via the server (AJAX ... Axios)
-const corsOptions = {
-  origin: [process.env.CLIENT_URL],
-  /* credentials : Configures the Access-Control-Allow-Credentials CORS header. Set to true to pass the header, otherwise it is omitted  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials */
-  credentials: true,
-  optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
 
 // cors middle on
 //app.use(passport.initialize());
