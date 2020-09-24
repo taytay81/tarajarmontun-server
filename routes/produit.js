@@ -36,11 +36,10 @@ router.post("/", cors(), uploader.array("image"), (req, res) => {
 });
 
 // adding an article using a product Id
-router.post("/article", cors(), (req, res) => {
-  
+router.post("/article", cors(issue2options), (req, res) => {
   produitArticleModel
     .create(req.body)
-    .then((article) => res.status(200).json(article))
+    .then((article) => res.status(200).send(article))
     .catch((err) => {
       res.status(500).json(err);
     });
