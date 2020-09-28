@@ -9,8 +9,14 @@ const produitCompositionModel = require("../models/ProduitComposition");
 const uploader = require("../config/cloudinary");
 const cors = require("cors");
 // adding a product in the product table
+const corsOptions = {
+  origin: [process.env.CLIENT_URL],
+  /* credentials : Configures the Access-Control-Allow-Credentials CORS header. Set to true to pass the header, otherwise it is omitted  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials */
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
 
-router.post("/", cors(), uploader.array("image"), (req, res) => {
+router.post("/", cors(corsOptions), uploader.array("image"), (req, res) => {
   const newProduit = req.body;
 
   var files = req.files[0].secure_url;
@@ -36,7 +42,7 @@ router.post("/", cors(), uploader.array("image"), (req, res) => {
 });
 
 // adding an article using a product Id
-router.post("/article", cors(issue2options), (req, res) => {
+router.post("/article", cors(corsOptions), (req, res) => {
   produitArticleModel
     .create(req.body)
     .then((article) => res.status(200).send(article))
