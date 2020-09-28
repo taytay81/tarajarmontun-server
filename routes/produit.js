@@ -16,7 +16,7 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-router.post("/", cors(corsOptions), uploader.array("image"), (req, res) => {
+router.post("/", cors(), uploader.array("image"), (req, res) => {
   const newProduit = req.body;
 
   var files = req.files[0].secure_url;
