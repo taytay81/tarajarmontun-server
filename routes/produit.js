@@ -9,6 +9,12 @@ const produitCompositionModel = require("../models/ProduitComposition");
 const uploader = require("../config/cloudinary");
 const cors = require("cors");
 // adding a product in the product table
+/*var app = express();
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});*/
 
 router.post("/", cors(), uploader.array("image"), (req, res) => {
   const newProduit = req.body;
@@ -36,6 +42,7 @@ router.post("/", cors(), uploader.array("image"), (req, res) => {
 });
 
 // adding an article using a product Id
+router.options("/article", cors());
 router.post("/article", cors(), (req, res) => {
   produitArticleModel
     .create(req.body)
