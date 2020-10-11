@@ -17,7 +17,7 @@ const articleCouleur = [
   "#004C00",
   "MOKA",
   "#631919",
-  /*"EMERAUDE",
+  "EMERAUDE",
   "#019875",
   "ROUGE",
   "#FF0000",
@@ -44,7 +44,7 @@ const articleCouleur = [
   "CANARD",
   "#01202B",
   "OR",
-  "#d5cda2",*/
+  "#d5cda2",
 ];
 const articleType = [
   "robe",
@@ -122,7 +122,7 @@ function seedRobeTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7ea",
+      type_article: "5f8173b315397c43142926d2",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -133,7 +133,7 @@ function seedVesteTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7eb",
+      type_article: "5f8173b315397c43142926d3",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -143,7 +143,7 @@ function seedManteauTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7ec",
+      type_article: "5f8173b315397c43142926d4",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -153,7 +153,7 @@ function seedPullTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7ed",
+      type_article: "5f8173b315397c43142926d5",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -163,7 +163,7 @@ function seedChemiseTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7ef",
+      type_article: "5f8173b315397c43142926d7",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -173,7 +173,7 @@ function seedCardiganTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7ee",
+      type_article: "5f8173b315397c43142926d6",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -183,7 +183,7 @@ function seedTopTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7f0",
+      type_article: "5f8173b315397c43142926d8",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -193,7 +193,7 @@ function seedtshirtTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7f1",
+      type_article: "5f8173b315397c43142926d9",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -203,7 +203,7 @@ function seedSweatTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7f2",
+      type_article: "5f8173b315397c43142926da",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -213,7 +213,7 @@ function seedshortTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7f3",
+      type_article: "5f8173b315397c43142926db",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -223,7 +223,7 @@ function seedpantalonTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7f4",
+      type_article: "5f8173b315397c43142926dc",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -233,7 +233,7 @@ function seedjupeTaille() {
   articleTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7f5",
+      type_article: "5f8173b315397c43142926dd",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -243,7 +243,7 @@ function seedchaussureTaille() {
   chaussureTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7f6",
+      type_article: "5f8173b315397c43142926de",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -253,7 +253,7 @@ function seedBijouxTaille() {
   sacTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7f7",
+      type_article: "5f8173b315397c43142926df",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -263,7 +263,7 @@ function seedsacTaille() {
   sacTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7f9",
+      type_article: "5f8173b315397c43142926e1",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -273,7 +273,7 @@ function seedceintureTaille() {
   ceinturetaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7fb",
+      type_article: "5f8173b315397c43142926e0",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -283,7 +283,7 @@ function seedlunetteTaille() {
   sacTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7fc",
+      type_article: "5f8173b315397c43142926e4",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -293,7 +293,7 @@ function seedaccesstextileTaille() {
   sacTaille.forEach((taille) =>
     articleTaillefinal.push({
       taille: taille,
-      type_article: "5f6a3f11cd60cc0017abd7fa",
+      type_article: "5f8173b315397c43142926e2",
     })
   );
   ArticleTailleModel.insertMany(articleTaillefinal);
@@ -329,9 +329,9 @@ function seedArticleComposition() {
 
 // SEED FUNCTION CALLS in comment when seeding has been done
 //seedArticleType();
-seedArticleCouleur();
+//seedArticleCouleur();
 //seedArticleComposition();
-/*seedRobeTaille();
+seedRobeTaille();
 seedaccesstextileTaille();
 seedlunetteTaille();
 seedceintureTaille();
@@ -348,4 +348,4 @@ seedManteauTaille();
 seedPullTaille();
 seedChemiseTaille();
 seedCardiganTaille();
-seedTopTaille();*/
+seedTopTaille();

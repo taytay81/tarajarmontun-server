@@ -369,6 +369,52 @@ router.get("/top", cors(), async (req, res, next) => {
   }
 });
 
+
+router.get("/bas", cors(), async (req, res, next) => {
+  const alltypes = await produitTypeModel.find();
+  var typeIdpantalon = retrieveId(alltypes, "type", "pantalon");
+  var typeIdjupe = retrieveId(alltypes, "type", "jupe");
+  var typeIdshort = retrieveId(alltypes, "type", "short");
+
+
+  if (
+    typeIdpantalon != null ||
+    typeIdjupe != null ||
+    typeIdshort != null 
+    
+  ) {
+    produitModel
+      .aggregate([
+        {
+          $match: {
+            $or: [
+              { type: typeIdpantalon },
+              { type: typeIdjupe },
+              { type: typeIdshort },
+              
+            ],
+          },
+        },
+
+        {
+          $lookup: {
+            from: "articles",
+            localField: "_id",
+            foreignField: "produit",
+            as: "bas",
+          },
+        },
+        {
+          $match: {
+            "bas.disponible": true,
+          },
+        },
+      ])
+      .then((allbas) => res.json(allbas))
+      .catch(next);
+  }
+});
+
 // get  all available articles that match the accessoire type
 
 router.get("/accessoire", cors(), async (req, res, next) => {
