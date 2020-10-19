@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const produitModel = require("../models/Produit");
-const articleModel = require("../models/Article");
+
 const produitTypeModel = require("../models/ProduitType");
 const produitColorModel = require("../models/ProduitCouleur");
 const produitCompositionModel = require("../models/ProduitComposition");

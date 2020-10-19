@@ -9,6 +9,7 @@ var logger = require("morgan");
 const session = require("express-session"); //sessions make data persist between http calls
 //const passport = require("passport"); // auth library (needs sessions)
 const cors = require("cors");
+//const mailchimp = require("@mailchimp/mailchimp_marketing");
 
 var app = express();
 
@@ -21,6 +22,7 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
+//app.use(mailchimp);
 
 app.use(logger("dev"));
 app.use(cookieParser());
@@ -46,10 +48,13 @@ var indexRouter = require("./routes/index.js");
 var usersRouter = require("./routes/users.js");
 var produitRouter = require("./routes/produit.js");
 var articleRouter = require("./routes/articles.js");
+var newsLetterRouter = require("./routes/newsLetter.js");
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/produit", produitRouter);
 app.use("/articles", articleRouter);
+app.use("/newsLetter", newsLetterRouter);
 
 module.exports = app;
+//module.exports = mailchimp;

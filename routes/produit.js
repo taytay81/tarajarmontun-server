@@ -8,6 +8,8 @@ const produitCouleureModel = require("../models/ProduitCouleur");
 const produitCompositionModel = require("../models/ProduitComposition");
 const uploader = require("../config/cloudinary");
 const cors = require("cors");
+
+
 // adding a product in the product table
 /*var app = express();
 app.use(function(req, res, next) {
