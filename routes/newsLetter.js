@@ -13,6 +13,8 @@ router.post("/newUser", (req, res) => {
           .catch((err) => {
             res.status(500).json(err);
           });
+      } else {
+        res.status(500).send("user already exist");
       }
     })
     .catch((err) => {
