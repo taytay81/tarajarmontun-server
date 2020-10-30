@@ -24,6 +24,7 @@ const produitSchema = new Schema({
   },
   prix: { type: Number, required: true },
   type: { type: Schema.Types.ObjectId, ref: "ProduitType", required: true },
+  click: { type: Number, default: 0 },
 });
 
 const Produit = mongoose.model("Produit", produitSchema);

@@ -65,7 +65,22 @@ router.get("/detail/:id", cors(), (req, res, next) => {
         },
       },
     ])
-    .then((article) => res.json(article))
+    .then((article) => {
+      console.log("article", article);
+      console.log(article[0]._id);
+
+      produitModel
+        .findByIdAndUpdate(
+          article[0]._id,
+          { $inc: { click: 1 } },
+          { new: true }
+        )
+        .then((dbRes) => {
+          console.log("dbres", dbRes);
+          res.status(200).json(article);
+        })
+        .catch(next);
+    })
     .catch(next);
 });
 
@@ -110,8 +125,6 @@ router.get("/recherche/:parametres", cors(), async (req, res, next) => {
     if (localColorId) colorId = localColorId;
   }
 
-  console.log(typeId);
-  console.log(colorId);
   if (typeId && colorId) {
     produitModel
       .aggregate([
@@ -369,20 +382,13 @@ router.get("/top", cors(), async (req, res, next) => {
   }
 });
 
-
 router.get("/bas", cors(), async (req, res, next) => {
   const alltypes = await produitTypeModel.find();
   var typeIdpantalon = retrieveId(alltypes, "type", "pantalon");
   var typeIdjupe = retrieveId(alltypes, "type", "jupe");
   var typeIdshort = retrieveId(alltypes, "type", "short");
 
-
-  if (
-    typeIdpantalon != null ||
-    typeIdjupe != null ||
-    typeIdshort != null 
-    
-  ) {
+  if (typeIdpantalon != null || typeIdjupe != null || typeIdshort != null) {
     produitModel
       .aggregate([
         {
@@ -391,7 +397,6 @@ router.get("/bas", cors(), async (req, res, next) => {
               { type: typeIdpantalon },
               { type: typeIdjupe },
               { type: typeIdshort },
-              
             ],
           },
         },
