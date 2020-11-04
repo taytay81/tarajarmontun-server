@@ -261,8 +261,33 @@ router.get("/robes", cors(), async (req, res, next) => {
   }
 });
 
-//get all available articles that match the manteaux et veste type
+// get the 8 most clicked items to include in the most wanted section
+router.get("/MostWanted", cors(), async (req, res, next) => {
+  produitModel
+    .aggregate([
+      {
+        $sort: { click: -1 },
+      },
+      { $limit: 8 },
+      {
+        $lookup: {
+          from: "articles",
+          localField: "_id",
+          foreignField: "produit",
+          as: "mostwanted",
+        },
+      },
+      {
+        $match: {
+          "mostwanted.disponible": true,
+        },
+      },
+    ])
+    .then((mostwantedRes) => res.json(mostwantedRes))
+    .catch(next);
+});
 
+//get all available articles that match the manteaux et veste type
 router.get("/manteauVeste", cors(), async (req, res, next) => {
   const alltypes = await produitTypeModel.find();
   var typeIdm = retrieveId(alltypes, "type", "manteaux");
